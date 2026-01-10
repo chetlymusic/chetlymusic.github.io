@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unfinished</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.5;
+    }
+    .card {
+      max-width: 720px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 14px;
+      border: 1px solid #222;
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .err {
+      color: #b00020;
+      margin-top: 10px;
+      display: none;
+    }
+    .hint {
+      color: #666;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    #content {
+      display: none;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="gate">
+    <h1>Unfinished</h1>
+    <p>This page is not public.</p>
+
+    <div class="row">
+      <input id="pw" type="password" placeholder="Password" />
+      <button id="btn">Unlock</button>
+    </div>
+
+    <div class="err" id="err">Incorrect password.</div>
+    <div class="hint">Private draft area.</div>
+  </div>
+
+  <div id="content">
+    <!-- =======================
+         REPLACE CONTENT BELOW
+         ======================= -->
+
+    <h1>Unfinished</h1>
+    <p>This page is under construction.</p>
+
+  If you are viewing this page, you agree that you will not share the content with anyone
+  without the band's permission.
+</p>
+
+<p>
+  Here is a list of unfinished songs the band is working on:
+</p>
+
+<ul>
+  <li>
+    <a
+      href="https://soundcloud.com/chetlymusic/he-thought-that-someday-mix-05c-more-vocal-cleanup/s-PTxX2QAhwi9"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      He Thought That Someday (Mix 05c – more vocal cleanup)
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="https://soundcloud.com/chetlymusic/new-path-to-follow-mix-01-brand-new-mix/s-KaEJSweDEsL"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      New Path to Follow (Mix 01 – brand new mix)
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="https://soundcloud.com/chetlymusic/im-not-that-young-mix-01b-brand-new-version/s-rhLFuhDNl43"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      I’m Not That Young (Mix 01b – brand new version)
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="https://soundcloud.com/chetlymusic/she-is-the-water-mix-26-d-effects-added-back-to-solo-guitar-track-reduced-drums-brushes/s-qobPKj4rP5B"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      She Is the Water (Mix 26-D – effects added back, solo guitar focus)
+    </a>
+  </li>
+</ul>
+  </div>
+
+  <script>
+    // Password = "trustme"
+    const PASSWORD_SHA256_HEX =
+      "368d90c41d74aedc06641dffbef6ce54be38d20580a4a59264c325105e2695f9";
+
+    const STORAGE_KEY = "chetly_unfinished_unlocked_v1";
+
+    const gateEl = document.getElementById("gate");
+    const contentEl = document.getElementById("content");
+    const pwEl = document.getElementById("pw");
+    const errEl = document.getElementById("err");
+    const btnEl = document.getElementById("btn");
+
+    function hex(buffer) {
+      return [...new Uint8Array(buffer)]
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+    }
+
+    async function sha256Hex(text) {
+      const enc = new TextEncoder().encode(text);
+      const digest = await crypto.subtle.digest("SHA-256", enc);
+      return hex(digest);
+    }
+
+    async function unlock() {
+      errEl.style.display = "none";
+      const hash = await sha256Hex(pwEl.value || "");
+      if (hash === PASSWORD_SHA256_HEX) {
+        localStorage.setItem(STORAGE_KEY, "1");
+        gateEl.style.display = "none";
+        contentEl.style.display = "block";
+        pwEl.value = "";
+      } else {
+        errEl.style.display = "block";
+      }
+    }
+
+    btnEl.addEventListener("click", unlock);
+    pwEl.addEventListener("keydown", e => {
+      if (e.key === "Enter") unlock();
+    });
+
+    if (localStorage.getItem(STORAGE_KEY) === "1") {
+      gateEl.style.display = "none";
+      contentEl.style.display = "block";
+    }
+  </script>
+</body>
+</html>
