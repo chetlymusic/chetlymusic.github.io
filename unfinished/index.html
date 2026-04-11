@@ -13,7 +13,6 @@
       background: #f7f7f7;
     }
 
-    /* Blurred logo backdrop (logo stored in repo root) */
     body::before {
       content: "";
       position: fixed;
@@ -89,20 +88,21 @@
       margin: 0 0 24px 0;
     }
 
-    #content ul {
-      font-size: 2.45rem;
-      line-height: 1.35;
-      padding-left: 1.4em;
-      margin: 0;
+    .player-wrap {
+      margin-top: 24px;
     }
 
-    #content li {
-      margin-bottom: 18px;
+    .player-wrap iframe {
+      width: 100%;
+      height: 480px;
+      border: 0;
+      border-radius: 12px;
+      display: block;
     }
 
-    #content a {
-      word-break: normal;
-      overflow-wrap: break-word;
+    .fallback-link {
+      margin-top: 16px;
+      font-size: 1.2rem;
     }
 
     @media (max-width: 900px) {
@@ -119,8 +119,8 @@
         font-size: 1.5rem;
       }
 
-      #content ul {
-        font-size: 1.8rem;
+      .player-wrap iframe {
+        height: 380px;
       }
     }
   </style>
@@ -149,128 +149,26 @@
     </p>
 
     <p>
-      Here is a list of unfinished songs the band is working on:
+      Here is the current private playlist of unfinished songs the band is working on:
     </p>
 
-    <ul>
-      <li>
-        <a
-          href="https://on.soundcloud.com/gooSNflsWGS9NIrJWX"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          He Thought That Someday
-        </a>
-      </li>
+    <div class="player-wrap">
+      <iframe
+        scrolling="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FkP3ywmaJtkSbCzs7kp&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true">
+      </iframe>
+    </div>
 
-      <li>
-        <a
-          href="https://on.soundcloud.com/c5rJmF48JHXwuNCEs3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          New Path to Follow
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://on.soundcloud.com/3aESgUUdhpVbTVTmwV"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          I’m Not That Young
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://soundcloud.com/chetlymusic/she-is-the-water-mix-26-d-effects-added-back-to-solo-guitar-track-reduced-drums-brushes/s-qobPKj4rP5B"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          She Is the Water
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://on.soundcloud.com/ZahnXNb7lPrAiwL8U3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Happier Day
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://on.soundcloud.com/SDDeZ8OgccRySd6XU6"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Disappointed Citizen
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://on.soundcloud.com/FKXVMyA3lOasMlmuKW"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          A Boat You Can't Row
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://on.soundcloud.com/xXMEV76M6J6nTSTovH"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Boulevard Walkabout
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://on.soundcloud.com/lraOOMSqD6FT7uvSqv"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Back In Indiana
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://on.soundcloud.com/V0kVjliX4PC6DdZEpb"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Bluer Future
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://soundcloud.com/chetlymusic/bluer-future-1?si=a3b40fef88ae4a629ecaed8158a1f686&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-      </li>
- <p>
- </p>
-    <p>
-      Previously Released:
+    <p class="fallback-link">
+      If the player does not load, open the playlist directly:
+      <a href="https://on.soundcloud.com/kP3ywmaJtkSbCzs7kp" target="_blank" rel="noopener noreferrer">
+        Private SoundCloud playlist
+      </a>
     </p>
-          Bluer Future (Single - Released 2025)
-        </a>
-     </ul>
   </div>
 
   <script>
-    // Password = "trustme" (SHA-256 hex)
     const PASSWORD_SHA256_HEX =
       "368d90c41d74aedc06641dffbef6ce54be38d20580a4a59264c325105e2695f9";
 
