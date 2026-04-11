@@ -1,179 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Chetly - Band Members</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Chetly</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #fff;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #f4f4f4;
+      background-image: url('/band-photo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #111;
+      position: relative;
+      min-height: 100vh;
+    }
 
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.68);
+      z-index: 0;
+    }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(980px, 92%);
+      margin: 40px auto;
+    }
 
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+    .topbar {
+      text-align: center;
+      margin-bottom: 18px;
+    }
 
-        .back-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
+    .home-link {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.72);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
 
-        .members {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+    .home-link:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
 
-        .member {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
+    .card {
+      background: rgba(18, 18, 18, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
 
-        .member:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-        }
+    .band-photo {
+      display: block;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto 26px auto;
+      border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+    }
 
-        .member-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            display: block;
-        }
+    h1 {
+      margin: 0 0 8px 0;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 2.2rem;
+      color: #fff;
+    }
 
-        .member-name {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #fff;
-        }
+    .tagline {
+      text-align: center;
+      color: #d7d7d7;
+      margin: 0 0 26px 0;
+      font-size: 1.05rem;
+    }
 
-        .member-role {
-            font-size: 1em;
-            color: #aaa;
-            margin-bottom: 15px;
-            font-style: italic;
-        }
+    .section {
+      margin-top: 24px;
+    }
 
-        .member-bio {
-            font-size: 0.95em;
-            line-height: 1.6;
-            color: #ccc;
-            text-align: left;
-        }
+    h2 {
+      margin: 0 0 12px 0;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #f5c542;
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
+    p {
+      margin: 0 0 16px 0;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #f0f0f0;
+    }
 
-            .members {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.68);
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .btn-spotify { border-color: #1ed760; }
+    .btn-soundcloud { border-color: #ff5500; }
+    .btn-youtube { border-color: #ff0000; }
+    .btn-facebook { border-color: #1877f2; }
+    .btn-email { border-color: #6464ff; }
+
+    .note {
+      color: #cfcfcf;
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        width: 94%;
+        margin: 20px auto;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .links {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="back-btn">← Back to Home</a>
-            <h1>Meet the Band</h1>
-        </header>
-
-        <div class="members">
-            <!-- MEMBER 1 -->
-            <div class="member">
-                <!-- Upload your photo as: member1.jpg -->
-                <img src="member1.jpg" alt="Member 1" class="member-photo">
-                <div class="member-name">Vic</div>
-                <div class="member-role">Guitar</div>
-                <div class="member-bio">
-                    <!-- Add member bio here -->
-                   Vic plays a Gibson Les Paul and lives in Grapevine, TX.
-                </div>
-            </div>
-
-            <!-- MEMBER 2 -->
-            <div class="member">
-                <!-- Upload your photo as: member2.jpg -->
-                <img src="member2.jpg" alt="Member 2" class="member-photo">
-                <div class="member-name">Dave</div>
-                <div class="member-role">Bass, Acoustic Guitar, Vocals</div>
-                <div class="member-bio">
-                    <!-- Add member bio here -->
-                    Dave wrote and sang on one of the band's upcomming releases.  He lives in Grapevine, TX.
-                </div>
-            </div>
-
-            <!-- MEMBER 3 -->
-            <div class="member">
-                <!-- Upload your photo as: member3.jpg -->
-                <img src="member3.jpg" alt="Member 3" class="member-photo">
-                <div class="member-name">J</div>
-                <div class="member-role">Drums</div>
-                <div class="member-bio">
-                    <!-- Add member bio here -->
-                    Dr. J keeps the beat and keeps us all healthy.
-                </div>
-            </div>
-
-            <!-- MEMBER 4 -->
-            <div class="member">
-                <!-- Upload your photo as: member4.jpg -->
-                <img src="member4.jpg" alt="Member 4" class="member-photo">
-                <div class="member-name">Jack</div>
-                <div class="member-role">Guitar & Vocals</div>
-                <div class="member-bio">
-                    <!-- Add member bio here -->
-                    Jack writes most of the band's songs, plays guitar and sings.  He lives in Southlake, TX.
-                </div>
-            </div>
-        </div>
+  <div class="wrap">
+    <div class="topbar">
+      <a href="/" class="home-link">Back to Home</a>
     </div>
-</body>
 
+    <div class="card">
+      <img src="/band-photo.jpg" alt="Chetly band photo" class="band-photo" />
+
+      <h1>About Chetly</h1>
+      <p class="tagline">Alternative Rock • Southlake, TX</p>
+
+      <div class="section">
+        <h2>Who We Are</h2>
+        <p>
+          Chetly is an alternative rock band based in Southlake, Texas. The band blends
+          melody, energy, and character-driven songs into a sound that leans classic in spirit
+          but modern in presentation.
+        </p>
+        <p>
+          This site is the central home for releases, demos, videos, and updates. New material
+          may appear on streaming platforms, social pages, or private preview pages before wider release.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>What We’re Doing</h2>
+        <p>
+          Chetly is actively writing, recording, and refining new music. Some songs are released
+          publicly, while others remain in progress as demos, alternate mixes, or private works-in-progress.
+        </p>
+        <p class="note">
+          Check the links below for the latest public music and updates.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Listen and Follow</h2>
+        <div class="links">
+          <a href="https://open.spotify.com/artist/4Cee0x7rehlLlqOc3jftW7?si=CXO9RSMqQXiYuIP8-udS8Q" class="btn btn-spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://soundcloud.com/chetlymusic" class="btn btn-soundcloud" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+          <a href="https://youtube.com/@chetlymusic" class="btn btn-youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.facebook.com/profile.php?id=61560998221902" class="btn btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="mailto:chetlymusic@gmail.com" class="btn btn-email">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
