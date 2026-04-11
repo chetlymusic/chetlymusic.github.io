@@ -6,9 +6,7 @@
   <title>About | Chetly</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -85,18 +83,16 @@
       text-transform: uppercase;
       letter-spacing: 4px;
       font-size: 2.2rem;
-      color: #fff;
     }
 
     .tagline {
       text-align: center;
       color: #d7d7d7;
       margin: 0 0 26px 0;
-      font-size: 1.05rem;
     }
 
     .section {
-      margin-top: 24px;
+      margin-top: 26px;
     }
 
     h2 {
@@ -111,7 +107,6 @@
       margin: 0 0 16px 0;
       line-height: 1.7;
       font-size: 1.05rem;
-      color: #f0f0f0;
     }
 
     .links {
@@ -146,6 +141,7 @@
     .btn-youtube { border-color: #ff0000; }
     .btn-facebook { border-color: #1877f2; }
     .btn-email { border-color: #6464ff; }
+    .btn-unfinished { border-color: #f5c542; }
 
     .note {
       color: #cfcfcf;
@@ -153,41 +149,23 @@
     }
 
     @media (max-width: 700px) {
-      .wrap {
-        width: 94%;
-        margin: 20px auto;
-      }
-
-      .card {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-        letter-spacing: 3px;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .links {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
+      .wrap { width: 94%; margin: 20px auto; }
+      .card { padding: 20px; }
+      .links { flex-direction: column; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
+
     <div class="topbar">
       <a href="/" class="home-link">Back to Home</a>
     </div>
 
     <div class="card">
+
       <img src="/band-photo.jpg" alt="Chetly band photo" class="band-photo" />
 
       <h1>About Chetly</h1>
@@ -196,37 +174,54 @@
       <div class="section">
         <h2>Who We Are</h2>
         <p>
-          Chetly is an alternative rock band based in Southlake, Texas. The band blends
-          melody, energy, and character-driven songs into a sound that leans classic in spirit
-          but modern in presentation.
+          Chetly is an alternative rock band based in Southlake, Texas, blending melodic songwriting
+          with energetic performances and a distinctive character-driven sound.
         </p>
         <p>
-          This site is the central home for releases, demos, videos, and updates. New material
-          may appear on streaming platforms, social pages, or private preview pages before wider release.
+          This site serves as the central hub for music, updates, and exclusive content as the band
+          continues developing its debut album.
         </p>
       </div>
 
       <div class="section">
         <h2>What We’re Doing</h2>
         <p>
-          Chetly is actively writing, recording, and refining new music. Some songs are released
-          publicly, while others remain in progress as demos, alternate mixes, or private works-in-progress.
+          The band is actively writing and recording new material, experimenting with arrangements,
+          and refining mixes in preparation for release.
         </p>
         <p class="note">
-          Check the links below for the latest public music and updates.
+          Some songs are released publicly, while others remain works-in-progress shared selectively.
         </p>
+      </div>
+
+      <!-- NEW SECTION -->
+      <div class="section">
+        <h2>Unfinished Music</h2>
+        <p>
+          There is a private page where you can listen to unfinished tracks, alternate mixes, and
+          songs currently being developed for the band’s upcoming debut album.
+        </p>
+        <p>
+          Access is limited. Reach out to the band directly and request the password if you’d like
+          to hear what’s in progress.
+        </p>
+
+        <div class="links">
+          <a href="/unfinished" class="btn btn-unfinished">Unfinished Page</a>
+        </div>
       </div>
 
       <div class="section">
         <h2>Listen and Follow</h2>
         <div class="links">
-          <a href="https://open.spotify.com/artist/4Cee0x7rehlLlqOc3jftW7?si=CXO9RSMqQXiYuIP8-udS8Q" class="btn btn-spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
-          <a href="https://soundcloud.com/chetlymusic" class="btn btn-soundcloud" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-          <a href="https://youtube.com/@chetlymusic" class="btn btn-youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <a href="https://www.facebook.com/profile.php?id=61560998221902" class="btn btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://open.spotify.com/artist/4Cee0x7rehlLlqOc3jftW7?si=CXO9RSMqQXiYuIP8-udS8Q" class="btn btn-spotify" target="_blank">Spotify</a>
+          <a href="https://soundcloud.com/chetlymusic" class="btn btn-soundcloud" target="_blank">SoundCloud</a>
+          <a href="https://youtube.com/@chetlymusic" class="btn btn-youtube" target="_blank">YouTube</a>
+          <a href="https://www.facebook.com/profile.php?id=61560998221902" class="btn btn-facebook" target="_blank">Facebook</a>
           <a href="mailto:chetlymusic@gmail.com" class="btn btn-email">Contact</a>
         </div>
       </div>
+
     </div>
   </div>
 </body>
