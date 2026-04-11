@@ -88,20 +88,40 @@
       margin: 0 0 24px 0;
     }
 
+    .player-wrap {
+      margin-top: 24px;
+    }
+
     .player-wrap iframe {
       width: 100%;
       height: 480px;
       border: 0;
       border-radius: 12px;
+      display: block;
     }
 
-    .fallback-link {
-      margin-top: 16px;
-      font-size: 1.2rem;
+    .soundcloud-credit {
+      font-size: 10px;
+      color: #cccccc;
+      line-break: anywhere;
+      word-break: normal;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+      font-weight: 100;
+      margin-top: 6px;
+    }
+
+    .soundcloud-credit a {
+      color: #cccccc;
+      text-decoration: none;
     }
 
     @media (max-width: 900px) {
-      body { margin: 20px; }
+      body {
+        margin: 20px;
+      }
 
       .card {
         width: 100%;
@@ -147,18 +167,20 @@
 
     <div class="player-wrap">
       <iframe
+        width="100%"
+        height="300"
         scrolling="no"
+        frameborder="no"
         allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/chetlymusic/sets/unfinished%3Fs-7qe3bCtei2o&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=true">
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2220315515%3Fsecret_token%3Ds-7qe3bCtei2o&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
       </iframe>
-    </div>
 
-    <p class="fallback-link">
-      If the player does not load, open directly:
-      <a href="https://soundcloud.com/chetlymusic/sets/unfinished/s-7qe3bCtei2o" target="_blank">
-        Open Playlist in SoundCloud
-      </a>
-    </p>
+      <div class="soundcloud-credit">
+        <a href="https://soundcloud.com/chetlymusic" title="Chetly" target="_blank" rel="noopener noreferrer">Chetly</a>
+        ·
+        <a href="https://soundcloud.com/chetlymusic/sets/unfinished/s-7qe3bCtei2o" title="Unfinished" target="_blank" rel="noopener noreferrer">Unfinished</a>
+      </div>
+    </div>
   </div>
 
   <script>
