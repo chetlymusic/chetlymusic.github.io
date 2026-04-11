@@ -50,13 +50,15 @@ body::after {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+  text-align: center;
 }
 
-/* HERO IMAGE (your new one) */
+/* HERO IMAGE — REDUCED TO 50% */
 .hero {
-  width: 100%;
+  width: 50%;
+  max-width: 500px;
   border-radius: 14px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   display: block;
 }
 
@@ -78,10 +80,12 @@ p {
 .row {
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 
 input {
   flex: 1;
+  max-width: 300px;
   padding: 12px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.3);
@@ -120,6 +124,7 @@ button {
 /* MOBILE */
 @media (max-width: 600px) {
   .row { flex-direction: column; }
+  .hero { width: 80%; }
   .player-wrap iframe { height: 820px; }
 }
 </style>
@@ -127,10 +132,8 @@ button {
 
 <body>
 
-<!-- PASSWORD CARD -->
+<!-- PASSWORD -->
 <div class="card" id="gate">
-
-  <!-- YOUR NEW IMAGE -->
   <img src="/Lucky.jpeg" class="hero" alt="Chetly image" />
 
   <h1>UNFINISHED</h1>
@@ -146,7 +149,6 @@ button {
 
 <!-- CONTENT -->
 <div class="card" id="content" style="display:none;">
-
   <img src="/Lucky.jpeg" class="hero" />
 
   <h1>UNFINISHED</h1>
