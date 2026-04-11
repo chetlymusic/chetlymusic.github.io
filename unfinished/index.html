@@ -7,9 +7,10 @@
 
   <style>
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       margin: 40px;
       line-height: 1.5;
+      background: #f7f7f7;
     }
 
     /* Blurred logo backdrop (logo stored in repo root) */
@@ -27,12 +28,13 @@
     }
 
     .card {
-      max-width: 720px;
-      padding: 20px;
+      width: min(1100px, 92vw);
+      padding: 28px 32px;
       border: 1px solid #ddd;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(2px);
+      box-sizing: border-box;
     }
 
     .row {
@@ -76,14 +78,50 @@
       margin-top: 18px;
     }
 
-    /* Increased body text above list */
-    #content p {
-      font-size: 27pt;
+    #content h1 {
+      margin-top: 0;
+      margin-bottom: 18px;
     }
 
-    /* Increased song list text */
+    #content p {
+      font-size: 2.1rem;
+      line-height: 1.45;
+      margin: 0 0 24px 0;
+    }
+
     #content ul {
-      font-size: 32pt;
+      font-size: 2.45rem;
+      line-height: 1.35;
+      padding-left: 1.4em;
+      margin: 0;
+    }
+
+    #content li {
+      margin-bottom: 18px;
+    }
+
+    #content a {
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        margin: 20px;
+      }
+
+      .card {
+        width: 100%;
+        padding: 22px;
+      }
+
+      #content p {
+        font-size: 1.5rem;
+      }
+
+      #content ul {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
@@ -154,8 +192,6 @@
           She Is the Water (Mix 26-D – effects added back, solo guitar focus)
         </a>
       </li>
-    </ul>
-  </div>
 
       <li>
         <a
@@ -166,8 +202,6 @@
           Happier Day
         </a>
       </li>
-    </ul>
-  </div>
 
       <li>
         <a
@@ -178,10 +212,8 @@
           Disappointed Citizen
         </a>
       </li>
-    </ul>
-  </div>
 
-        <li>
+      <li>
         <a
           href="https://on.soundcloud.com/FKXVMyA3lOasMlmuKW"
           target="_blank"
@@ -190,22 +222,18 @@
           A Boat You Can't Row
         </a>
       </li>
-    </ul>
-  </div>
 
-        <li>
+      <li>
         <a
-          href="https://soundcloud.com/chetlymusic/she-is-the-water-mix-26-d-effects-added-back-to-solo-guitar-track-reduced-drums-brushes/s-qobPKj4rP5B"
+          href="https://on.soundcloud.com/xXMEV76M6J6nTSTovH"
           target="_blank"
           rel="noopener noreferrer"
         >
-          She Is the Water (Mix 26-D – effects added back, solo guitar focus)
+          Boulevard Walkabout
         </a>
       </li>
-    </ul>
-  </div>
 
-        <li>
+      <li>
         <a
           href="https://on.soundcloud.com/lraOOMSqD6FT7uvSqv"
           target="_blank"
@@ -214,10 +242,8 @@
           Back In Indiana
         </a>
       </li>
-    </ul>
-  </div>
 
-        <li>
+      <li>
         <a
           href="https://on.soundcloud.com/V0kVjliX4PC6DdZEpb"
           target="_blank"
@@ -226,10 +252,8 @@
           Bluer Future
         </a>
       </li>
-    </ul>
-  </div>
 
-        <li>
+      <li>
         <a
           href="https://soundcloud.com/chetlymusic/bluer-future-1?si=a3b40fef88ae4a629ecaed8158a1f686&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
           target="_blank"
@@ -240,6 +264,7 @@
       </li>
     </ul>
   </div>
+
   <script>
     // Password = "trustme" (SHA-256 hex)
     const PASSWORD_SHA256_HEX =
