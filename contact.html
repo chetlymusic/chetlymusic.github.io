@@ -1,89 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chetly</title>
-
-<meta property="og:title" content="Chetly" />
-<meta property="og:description" content="Alternative Rock from Southlake, TX" />
-<meta property="og:image" content="https://chetly.net/chetly-social-preview-final.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://chetly.net/chetly-social-preview-final.png" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Chetly</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #111;
   color: #fff;
+  background-image: url('/band-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
 }
 
-.header {
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: min(800px, 92%);
+  margin: 60px auto;
+}
+
+.card {
+  background: rgba(20,20,20,0.85);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
   text-align: center;
-  padding: 60px 20px;
-  background-image: url('band-photo.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 h1 {
-  font-size: 2.5em;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 25px;
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.email {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f5c542;
+  text-decoration: none;
+}
+
+.email:hover {
+  text-decoration: underline;
 }
 
 .btn {
-  padding: 12px 20px;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 18px;
   border-radius: 999px;
   border: 2px solid rgba(255,255,255,0.3);
   background: rgba(0,0,0,0.7);
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
 }
 
 .btn:hover {
   background: rgba(255,255,255,0.2);
-}
-
-.btn-unfinished { border-color: #f5c542; }
-.btn-spotify { border-color: #1ed760; }
-.btn-soundcloud { border-color: #ff5500; }
-.btn-youtube { border-color: #ff0000; }
-.btn-facebook { border-color: #1877f2; }
-
-@media (max-width:500px){
-  .buttons { flex-direction: column; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>Chetly</h1>
-  <p>Alternative Rock • Southlake, TX</p>
+<div class="wrap">
+  <div class="card">
 
-  <div class="buttons">
-    <a href="https://open.spotify.com" class="btn btn-spotify">Spotify</a>
-    <a href="https://soundcloud.com/chetlymusic" class="btn btn-soundcloud">SoundCloud</a>
-    <a href="https://youtube.com" class="btn btn-youtube">YouTube</a>
-    <a href="https://facebook.com" class="btn btn-facebook">Facebook</a>
+    <h1>Contact</h1>
 
-    <!-- UPDATED CONTACT BUTTON -->
-    <a href="contact.html" class="btn">Contact</a>
+    <p>
+      For booking inquiries, questions, or access to private material,
+      feel free to reach out directly to the band.
+    </p>
 
-    <a href="/unfinished" class="btn btn-unfinished">Unfinished</a>
-    <a href="about.html" class="btn">About</a>
+    <p>
+      If you are interested in hearing unreleased or unfinished tracks,
+      include a brief note about how you found the band.
+    </p>
+
+    <a href="mailto:chetlymusic@gmail.com" class="email">
+      chetlymusic@gmail.com
+    </a>
+
+    <a href="/" class="btn">Back to Home</a>
+
   </div>
 </div>
 
