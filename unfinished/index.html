@@ -27,8 +27,7 @@
     }
 
     .card {
-      width: 100%;
-      max-width: 900px;
+      width: min(1100px, 100%);
       margin: 0 auto;
       padding: 20px;
       border: 1px solid #ddd;
@@ -38,22 +37,24 @@
       box-sizing: border-box;
     }
 
-    h1 {
+    #gate h1,
+    #content h1 {
       text-align: center;
       text-transform: uppercase;
-      margin: 0 0 16px 0;
-      font-size: 1.8rem;
+      margin: 0 0 18px 0;
+      font-size: 2rem;
     }
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
+    #content p {
+      font-size: 1.35rem;
+      margin: 0 0 18px 0;
     }
 
     .hero-image {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 16px;
+      display: block;
+      margin: 0 auto 22px auto;
+      border-radius: 12px;
     }
 
     .row {
@@ -63,17 +64,20 @@
 
     input {
       flex: 1;
-      padding: 10px;
+      padding: 10px 12px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 16px;
     }
 
     button {
-      padding: 10px;
+      padding: 10px 14px;
       border-radius: 8px;
       border: none;
       background: #111;
       color: #fff;
+      font-size: 16px;
+      cursor: pointer;
     }
 
     .err {
@@ -82,16 +86,27 @@
       margin-top: 8px;
     }
 
+    .hint {
+      color: #666;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
     #content {
       display: none;
       margin-top: 16px;
     }
 
+    .player-wrap {
+      margin-top: 18px;
+    }
+
     .player-wrap iframe {
       width: 100%;
-      height: 500px;
-      border-radius: 10px;
-      border: none;
+      height: 980px;
+      border: 0;
+      border-radius: 12px;
+      display: block;
     }
 
     .soundcloud-credit {
@@ -99,6 +114,9 @@
       margin-top: 4px;
       color: #aaa;
       text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .soundcloud-credit a {
@@ -106,29 +124,51 @@
       text-decoration: none;
     }
 
-    /* iPhone optimization */
-    @media (max-width: 420px) {
+    @media (max-width: 900px) {
       body {
-        margin: 12px;
+        margin: 16px;
       }
 
-      h1 {
+      #gate h1,
+      #content h1 {
+        font-size: 1.7rem;
+      }
+
+      #content p {
+        font-size: 1.15rem;
+      }
+
+      .player-wrap iframe {
+        height: 820px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        margin: 10px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      #gate h1,
+      #content h1 {
         font-size: 1.5rem;
       }
 
-      p {
+      #content p {
         font-size: 1rem;
       }
 
       .player-wrap iframe {
-        height: 420px;
+        height: 820px;
       }
     }
   </style>
 </head>
 
 <body>
-
   <div class="card" id="gate">
     <h1>UNFINISHED</h1>
     <p>This page is not public.</p>
@@ -139,31 +179,37 @@
     </div>
 
     <div class="err" id="err">Incorrect password.</div>
+    <div class="hint">Private draft area.</div>
   </div>
 
   <div class="card" id="content">
-    <img src="/band-photo.jpg" class="hero-image" />
+    <img src="/band-photo.jpg" alt="Chetly band photo" class="hero-image" />
 
     <h1>UNFINISHED</h1>
 
     <p>
-      If you are viewing this page, you agree that you will not share the content without permission.
+      If you are viewing this page, you agree that you will not share the content with anyone
+      without the band's permission.
     </p>
 
     <p>
-      Here is the current private playlist:
+      Here is the current private playlist of unfinished songs the band is working on:
     </p>
 
     <div class="player-wrap">
       <iframe
+        width="100%"
+        height="980"
+        scrolling="no"
+        frameborder="no"
         allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2220315515%3Fsecret_token%3Ds-7qe3bCtei2o&visual=false">
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2220315515%3Fsecret_token%3Ds-7qe3bCtei2o&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false">
       </iframe>
 
       <div class="soundcloud-credit">
-        <a href="https://soundcloud.com/chetlymusic" target="_blank">Chetly</a>
+        <a href="https://soundcloud.com/chetlymusic" target="_blank" rel="noopener noreferrer">Chetly</a>
         ·
-        <a href="https://soundcloud.com/chetlymusic/sets/unfinished/s-7qe3bCtei2o" target="_blank">Unfinished</a>
+        <a href="https://soundcloud.com/chetlymusic/sets/unfinished/s-7qe3bCtei2o" target="_blank" rel="noopener noreferrer">Unfinished</a>
       </div>
     </div>
   </div>
@@ -175,25 +221,34 @@
     const content = document.getElementById("content");
     const pw = document.getElementById("pw");
     const err = document.getElementById("err");
+    const btn = document.getElementById("btn");
 
-    async function hash(text){
+    async function hash(text) {
       const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-      return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
+      return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
     }
 
-    document.getElementById("btn").onclick = async () => {
+    async function unlock() {
+      err.style.display = "none";
       if (await hash(pw.value) === HASH) {
+        localStorage.setItem("chetly_unfinished_unlocked_v1", "1");
         gate.style.display = "none";
         content.style.display = "block";
+        pw.value = "";
       } else {
         err.style.display = "block";
       }
-    };
+    }
 
+    btn.addEventListener("click", unlock);
     pw.addEventListener("keydown", e => {
-      if (e.key === "Enter") document.getElementById("btn").click();
+      if (e.key === "Enter") unlock();
     });
-  </script>
 
+    if (localStorage.getItem("chetly_unfinished_unlocked_v1") === "1") {
+      gate.style.display = "none";
+      content.style.display = "block";
+    }
+  </script>
 </body>
 </html>
