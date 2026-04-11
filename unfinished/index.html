@@ -1,254 +1,206 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UNFINISHED</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UNFINISHED</title>
 
-  <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      margin: 24px;
-      line-height: 1.5;
-      background: #f7f7f7;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("/chetly-logo.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 70%;
-      opacity: 0.15;
-      filter: blur(18px);
-      z-index: -1;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  color: #fff;
+}
 
-    .card {
-      width: min(1100px, 100%);
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(2px);
-      box-sizing: border-box;
-    }
+/* BLURRED BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('/band-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px);
+  transform: scale(1.1);
+  z-index: 0;
+}
 
-    #gate h1,
-    #content h1 {
-      text-align: center;
-      text-transform: uppercase;
-      margin: 0 0 18px 0;
-      font-size: 2rem;
-    }
+/* DARK OVERLAY */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 0;
+}
 
-    #content p {
-      font-size: 1.35rem;
-      margin: 0 0 18px 0;
-    }
+/* CARD */
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(1000px, 92%);
+  margin: 6vh auto;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(20,20,20,0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+}
 
-    .hero-image {
-      width: 100%;
-      display: block;
-      margin: 0 auto 22px auto;
-      border-radius: 12px;
-    }
+/* HERO IMAGE (your new one) */
+.hero {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  display: block;
+}
 
-    .row {
-      display: flex;
-      gap: 8px;
-    }
+/* TITLE */
+h1 {
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
 
-    input {
-      flex: 1;
-      padding: 10px 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
+/* TEXT */
+p {
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
 
-    button {
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: none;
-      background: #111;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-    }
+/* INPUT ROW */
+.row {
+  display: flex;
+  gap: 10px;
+}
 
-    .err {
-      color: #b00020;
-      display: none;
-      margin-top: 8px;
-    }
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
 
-    .hint {
-      color: #666;
-      font-size: 13px;
-      margin-top: 8px;
-    }
+button {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #f5c542;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    #content {
-      display: none;
-      margin-top: 16px;
-    }
+.err {
+  color: #ff8f8f;
+  display: none;
+  margin-top: 10px;
+}
 
-    .player-wrap {
-      margin-top: 18px;
-    }
+/* PLAYER */
+.player-wrap iframe {
+  width: 100%;
+  height: 980px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 20px;
+}
 
-    .player-wrap iframe {
-      width: 100%;
-      height: 980px;
-      border: 0;
-      border-radius: 12px;
-      display: block;
-    }
+.lock-btn {
+  margin-top: 20px;
+}
 
-    .soundcloud-credit {
-      font-size: 10px;
-      margin-top: 4px;
-      color: #aaa;
-      text-align: center;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-
-    .soundcloud-credit a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    @media (max-width: 900px) {
-      body {
-        margin: 16px;
-      }
-
-      #gate h1,
-      #content h1 {
-        font-size: 1.7rem;
-      }
-
-      #content p {
-        font-size: 1.15rem;
-      }
-
-      .player-wrap iframe {
-        height: 820px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      body {
-        margin: 10px;
-      }
-
-      .card {
-        padding: 16px;
-      }
-
-      #gate h1,
-      #content h1 {
-        font-size: 1.5rem;
-      }
-
-      #content p {
-        font-size: 1rem;
-      }
-
-      .player-wrap iframe {
-        height: 820px;
-      }
-    }
-  </style>
+/* MOBILE */
+@media (max-width: 600px) {
+  .row { flex-direction: column; }
+  .player-wrap iframe { height: 820px; }
+}
+</style>
 </head>
 
 <body>
-  <div class="card" id="gate">
-    <h1>UNFINISHED</h1>
-    <p>This page is not public.</p>
 
-    <div class="row">
-      <input id="pw" type="password" placeholder="Password" />
-      <button id="btn">Unlock</button>
-    </div>
+<!-- PASSWORD CARD -->
+<div class="card" id="gate">
 
-    <div class="err" id="err">Incorrect password.</div>
-    <div class="hint">Private draft area.</div>
+  <!-- YOUR NEW IMAGE -->
+  <img src="/Lucky.jpeg" class="hero" alt="Chetly image" />
+
+  <h1>UNFINISHED</h1>
+  <p>Private band page. Enter password to continue.</p>
+
+  <div class="row">
+    <input id="pw" type="password" placeholder="Password">
+    <button id="btn">Unlock</button>
   </div>
 
-  <div class="card" id="content">
-    <img src="/band-photo.jpg" alt="Chetly band photo" class="hero-image" />
+  <div class="err" id="err">Incorrect password.</div>
+</div>
 
-    <h1>UNFINISHED</h1>
+<!-- CONTENT -->
+<div class="card" id="content" style="display:none;">
 
-    <p>
-      If you are viewing this page, you agree that you will not share the content with anyone
-      without the band's permission.
-    </p>
+  <img src="/Lucky.jpeg" class="hero" />
 
-    <p>
-      Here is the current private playlist of unfinished songs the band is working on:
-    </p>
+  <h1>UNFINISHED</h1>
 
-    <div class="player-wrap">
-      <iframe
-        width="100%"
-        height="980"
-        scrolling="no"
-        frameborder="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2220315515%3Fsecret_token%3Ds-7qe3bCtei2o&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false">
-      </iframe>
+  <p>
+    If you are viewing this page, you agree that you will not share the content
+    without the band's permission.
+  </p>
 
-      <div class="soundcloud-credit">
-        <a href="https://soundcloud.com/chetlymusic" target="_blank" rel="noopener noreferrer">Chetly</a>
-        ·
-        <a href="https://soundcloud.com/chetlymusic/sets/unfinished/s-7qe3bCtei2o" target="_blank" rel="noopener noreferrer">Unfinished</a>
-      </div>
-    </div>
+  <p>
+    Here is the current private playlist:
+  </p>
+
+  <div class="player-wrap">
+    <iframe
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2220315515%3Fsecret_token%3Ds-7qe3bCtei2o&visual=false">
+    </iframe>
   </div>
 
-  <script>
-    const HASH = "368d90c41d74aedc06641dffbef6ce54be38d20580a4a59264c325105e2695f9";
+  <button class="lock-btn" onclick="logout()">Lock Page</button>
+</div>
 
-    const gate = document.getElementById("gate");
-    const content = document.getElementById("content");
-    const pw = document.getElementById("pw");
-    const err = document.getElementById("err");
-    const btn = document.getElementById("btn");
+<script>
+const HASH = "368d90c41d74aedc06641dffbef6ce54be38d20580a4a59264c325105e2695f9";
 
-    async function hash(text) {
-      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-      return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
-    }
+const gate = document.getElementById("gate");
+const content = document.getElementById("content");
+const pw = document.getElementById("pw");
+const err = document.getElementById("err");
 
-    async function unlock() {
-      err.style.display = "none";
-      if (await hash(pw.value) === HASH) {
-        localStorage.setItem("chetly_unfinished_unlocked_v1", "1");
-        gate.style.display = "none";
-        content.style.display = "block";
-        pw.value = "";
-      } else {
-        err.style.display = "block";
-      }
-    }
+async function hash(text){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
+}
 
-    btn.addEventListener("click", unlock);
-    pw.addEventListener("keydown", e => {
-      if (e.key === "Enter") unlock();
-    });
+document.getElementById("btn").onclick = async () => {
+  if (await hash(pw.value) === HASH) {
+    gate.style.display = "none";
+    content.style.display = "block";
+  } else {
+    err.style.display = "block";
+  }
+};
 
-    if (localStorage.getItem("chetly_unfinished_unlocked_v1") === "1") {
-      gate.style.display = "none";
-      content.style.display = "block";
-    }
-  </script>
+function logout(){
+  localStorage.removeItem("chetly_unfinished_unlocked_v1");
+  location.reload();
+}
+
+pw.addEventListener("keydown", e => {
+  if (e.key === "Enter") document.getElementById("btn").click();
+});
+</script>
+
 </body>
 </html>
