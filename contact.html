@@ -77,6 +77,27 @@ p {
 .btn:hover {
   background: rgba(255,255,255,0.2);
 }
+
+.card {text-align:left; max-width:680px; margin:auto;}
+h1 {text-align:center;}
+.intro {margin:0 0 24px;}
+form {display:grid; gap:9px;}
+form label {font-weight:700; margin-top:10px; font-size:.95rem;}
+form label small {font-weight:400; color:#cbd5e1;}
+form input:not([type="hidden"]):not(.honeypot), form textarea {
+ box-sizing:border-box; width:100%; background:#101b2b; border:1px solid #63738a;
+ border-radius:9px; padding:12px 13px; font:inherit; color:white;
+}
+form input:focus,form textarea:focus {outline:2px solid #f2a75e; outline-offset:1px;}
+form textarea {resize:vertical; min-height:150px;}
+form input::placeholder,form textarea::placeholder {color:#aab6c6;}
+.send-btn {margin-top:16px; padding:14px 20px; border:0; border-radius:9px;
+ background:#e98b3c; color:#101923; font:inherit; font-weight:800; cursor:pointer;}
+.send-btn:hover {background:#ffab65;}
+.form-note {font-size:.78rem; color:#cbd5e1; line-height:1.5; margin:5px 0 0;}
+.honeypot {position:absolute; left:-9999px; width:1px; height:1px; opacity:0;}
+.btn {display:table; margin:28px auto 0;}
+@media(max-width:600px){.wrap{margin:25px auto}.card{padding:22px}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZX1LXJDPMG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-ZX1LXJDPMG');document.addEventListener('click',function(e){const a=e.target.closest('a[href]');if(!a)return;try{const u=new URL(a.href,location.href);if(!/^https?:$/.test(u.protocol)||u.hostname.replace(/^www\./,'')===location.hostname.replace(/^www\./,''))return;gtag('event','outbound_click',{destination:u.hostname,link_text:(a.textContent||'').trim().slice(0,120),link_url:u.href})}catch(_){}});</script></head>
 
@@ -87,24 +108,42 @@ p {
 
     <h1>Contact</h1>
 
-    <p>
-      Chetly isn't booking shows at this time.  For other inquiries, questions, or access to private material,
-      feel free to reach out directly to the band.
-    </p>
+    <p class="intro">Chetly isn't booking shows at this time. For other inquiries, questions, or licensing requests, please submit below:</p>
 
-    <p>
-      If you are interested in hearing unreleased or unfinished tracks,
-      include a brief note about how you found the band and why you're interested.
-    </p>
+    <form id="contact-form" action="https://formsubmit.co/chetlymusic@gmail.com" method="POST">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" id="mail-subject" value="Chetly website inquiry">
+      <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <a href="mailto:chetlymusic@gmail.com" class="email">
-      chetlymusic@gmail.com
-    </a>
+      <label for="reply-email">Return Email <span aria-hidden="true">*</span></label>
+      <input id="reply-email" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+
+      <label for="phone">Phone Number <small>(optional)</small></label>
+      <input id="phone" type="tel" name="phone" autocomplete="tel" maxlength="40" placeholder="(555) 123-4567">
+
+      <label for="related-url">Related URL <small>(optional)</small></label>
+      <input id="related-url" type="url" name="related_url" maxlength="500" placeholder="https://example.com">
+
+      <label for="subject">Subject <span aria-hidden="true">*</span></label>
+      <input id="subject" type="text" name="subject" required maxlength="150" placeholder="What's this about?">
+
+      <label for="message">Message <span aria-hidden="true">*</span></label>
+      <textarea id="message" name="message" rows="7" required maxlength="10000" placeholder="Your message..."></textarea>
+
+      <button type="submit" class="send-btn">Send Message</button>
+      <p class="form-note">Fields marked * are required. Your message is handled by FormSubmit and sent to Chetly's email inbox.</p>
+    </form>
 
     <a href="/" class="btn">Back to Home</a>
 
   </div>
 </div>
 
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function () {
+    const subject = document.getElementById('subject').value.trim();
+    document.getElementById('mail-subject').value = 'Chetly website: ' + subject.slice(0, 120);
+  });
+</script>
 </body>
 </html>
