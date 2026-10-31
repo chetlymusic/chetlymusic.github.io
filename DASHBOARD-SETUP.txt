@@ -1,0 +1,17 @@
+CHETLY V5 — PRIVATE ANALYTICS SETUP
+
+This ZIP does NOT include a working authenticated dashboard yet. Static GitHub Pages cannot securely enforce Google sign-in or read GA4 private reports. Do not embed a GA4 API key, service-account secret, or password in public HTML.
+
+Recommended no-backend route: Google Looker Studio.
+1. Sign in as chetlymusic@gmail.com at https://lookerstudio.google.com/
+2. Create > Report > Google Analytics connector. Select the GA4 property with measurement ID G-ZX1LXJDPMG.
+3. Add scorecards: Total users, Views, Event count filtered to click and streaming_link_click.
+4. Add a table: dimension Link URL or platform (for custom event), metric Event count, filter Event name = click / streaming_link_click.
+5. Add a date range control, and a time series by Date.
+6. Share > Manage access: restrict report to chetlymusic@gmail.com, not 'anyone with link'; do not enable public embedding.
+7. Copy the private report URL. We can then place a Dashboard link on the website, opening the Google-authenticated report in a new tab.
+8. Test in an incognito browser: without logging into that account, the report must be inaccessible.
+
+The V5 website adds top streaming links (some services use SEARCH links pending artist/album verification), Qobuz/TIDAL release links where confirmed, and a second launch ribbon on homepage. It also records a custom GA4 streaming_link_click event with platform and release parameters. GA4 custom dimensions may need registering for reporting; standard outbound 'click' with link_url remains available.
+
+IMPORTANT: A link to a private Looker Studio report does not reveal its contents to unauthenticated visitors. A static 'dashboard.html' placeholder is included but is NOT an authenticated dashboard.

@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Contact | Chetly</title>
-
 <style>
 body {
   margin: 0;
@@ -99,46 +99,32 @@ form input::placeholder,form textarea::placeholder {color:#aab6c6;}
 .btn {display:table; margin:28px auto 0;}
 @media(max-width:600px){.wrap{margin:25px auto}.card{padding:22px}}
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZX1LXJDPMG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-ZX1LXJDPMG');document.addEventListener('click',function(e){const a=e.target.closest('a[href]');if(!a)return;try{const u=new URL(a.href,location.href);if(!/^https?:$/.test(u.protocol)||u.hostname.replace(/^www\./,'')===location.hostname.replace(/^www\./,''))return;gtag('event','outbound_click',{destination:u.hostname,link_text:(a.textContent||'').trim().slice(0,120),link_url:u.href})}catch(_){}});</script></head>
-
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZX1LXJDPMG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-ZX1LXJDPMG');document.addEventListener('click',function(e){const a=e.target.closest('a[href]');if(!a)return;try{const u=new URL(a.href,location.href);if(!/^https?:$/.test(u.protocol)||u.hostname.replace(/^www\./,'')===location.hostname.replace(/^www\./,''))return;gtag('event','outbound_click',{destination:u.hostname,link_text:(a.textContent||'').trim().slice(0,120),link_url:u.href})}catch(_){}});</script></head>
 <body>
-
 <div class="wrap">
-  <div class="card">
-
-    <h1>Contact</h1>
-
-    <p class="intro">Chetly isn't booking shows at this time. For other inquiries, questions, or licensing requests, please submit below:</p>
-
-    <form id="contact-form" action="https://formsubmit.co/chetlymusic@gmail.com" method="POST">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_subject" id="mail-subject" value="Chetly website inquiry">
-      <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-      <label for="reply-email">Return Email <span aria-hidden="true">*</span></label>
-      <input id="reply-email" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
-
-      <label for="phone">Phone Number <small>(optional)</small></label>
-      <input id="phone" type="tel" name="phone" autocomplete="tel" maxlength="40" placeholder="(555) 123-4567">
-
-      <label for="related-url">Related URL <small>(optional)</small></label>
-      <input id="related-url" type="url" name="related_url" maxlength="500" placeholder="https://example.com">
-
-      <label for="subject">Subject <span aria-hidden="true">*</span></label>
-      <input id="subject" type="text" name="subject" required maxlength="150" placeholder="What's this about?">
-
-      <label for="message">Message <span aria-hidden="true">*</span></label>
-      <textarea id="message" name="message" rows="7" required maxlength="10000" placeholder="Your message..."></textarea>
-
-      <button type="submit" class="send-btn">Send Message</button>
-      <p class="form-note">Fields marked * are required. Your message is handled by FormSubmit and sent to Chetly's email inbox.</p>
-    </form>
-
-    <a href="/" class="btn">Back to Home</a>
-
-  </div>
+<div class="card">
+<h1>Contact</h1>
+<p class="intro">Chetly isn't booking shows at this time. For other inquiries, questions, or licensing requests, please submit below:</p>
+<form action="https://formsubmit.co/chetlymusic@gmail.com" id="contact-form" method="POST">
+<input name="_template" type="hidden" value="table"/>
+<input id="mail-subject" name="_subject" type="hidden" value="Chetly website inquiry"/>
+<input aria-hidden="true" autocomplete="off" class="honeypot" name="_honey" tabindex="-1" type="text"/>
+<label for="reply-email">Return Email <span aria-hidden="true">*</span></label>
+<input autocomplete="email" id="reply-email" maxlength="254" name="email" placeholder="you@example.com" required="" type="email"/>
+<label for="phone">Phone Number <small>(optional)</small></label>
+<input autocomplete="tel" id="phone" maxlength="40" name="phone" placeholder="(555) 123-4567" type="tel"/>
+<label for="related-url">Related URL <small>(optional)</small></label>
+<input id="related-url" maxlength="500" name="related_url" placeholder="https://example.com" type="url"/>
+<label for="subject">Subject <span aria-hidden="true">*</span></label>
+<input id="subject" maxlength="150" name="subject" placeholder="What's this about?" required="" type="text"/>
+<label for="message">Message <span aria-hidden="true">*</span></label>
+<textarea id="message" maxlength="10000" name="message" placeholder="Your message..." required="" rows="7"></textarea>
+<button class="send-btn" type="submit">Send Message</button>
+<p class="form-note">Fields marked * are required. Your message is handled by FormSubmit and sent to Chetly's email inbox.</p>
+</form>
+<a class="btn" href="/">Back to Home</a>
 </div>
-
+</div>
 <script>
   document.getElementById('contact-form').addEventListener('submit', function () {
     const subject = document.getElementById('subject').value.trim();
