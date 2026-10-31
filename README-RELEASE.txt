@@ -1,14 +1,11 @@
-Chetly website — blue/orange release edition (cleaned)
+CHETLY SITE UPDATE — October 2026
 
-Homepage, About and Contact no longer link to or promote Unfinished, private access requests, or SoundCloud. The unfinished/ folder has been omitted from this package.
+Upload the CONTENTS of this ZIP to the root of your existing GitHub Pages repository (not the outer folder). Preserve CNAME.
 
-To preview, open index.html.
-To publish, upload the contents of this ZIP to the GitHub repository root. IMPORTANT: GitHub uploading does not delete old files automatically; delete the existing unfinished/ directory from GitHub separately if you want the old URL to stop working.
+New home page: index.html
+New images: album-cover.jpg, album-back.jpg, wedding-archive.jpg
+Existing About, Contact and Unfinished pages are preserved.
 
-Bandcamp links point to the artist homepage until releases are published.
+IMPORTANT: Bandcamp links currently point to https://chetly.bandcamp.com/ because the album page was previously a draft. After publishing, you can replace them with the direct album URL. Release-date labels never claim availability without verification.
 
-October 2026 release artwork update:
-- Home page release cards now show the two supplied single covers and album cover.
-- Release dates: Oct 16 / Oct 23 / Oct 30, 2026.
-- Links currently point to Chetly's general Bandcamp page; replace with individual release links when published.
-- Upload the CONTENTS of this folder to the repository root (not the parent folder).
+If you want a different wedding photo, replace wedding-archive.jpg with your preferred image.
