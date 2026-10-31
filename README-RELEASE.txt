@@ -1,11 +1,3 @@
-CHETLY SITE UPDATE — October 2026
+Chetly homepage redesign V2 — Oct 31 2026
 
-Upload the CONTENTS of this ZIP to the root of your existing GitHub Pages repository (not the outer folder). Preserve CNAME.
-
-New home page: index.html
-New images: album-cover.jpg, album-back.jpg, wedding-archive.jpg
-Existing About, Contact and Unfinished pages are preserved.
-
-IMPORTANT: Bandcamp links currently point to https://chetly.bandcamp.com/ because the album page was previously a draft. After publishing, you can replace them with the direct album URL. Release-date labels never claim availability without verification.
-
-If you want a different wedding photo, replace wedding-archive.jpg with your preferred image.
+All 11 song accordions, lyrics, credits and recording-history links are now on index.html in two columns (Side One / Side Two). Brand artwork replaces generic text in the header and hero. Two YouTube Shorts appear below songs. One compact JUST RELEASED banner remains until January 1, 2027. Existing songs.html retained for old bookmarks; it is no longer linked from homepage. GA4 retained. Upload extracted files to repository root.
