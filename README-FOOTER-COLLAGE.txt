@@ -1,0 +1,1 @@
+Footer matches the header platform row on all four public pages. Copyright centered below. Wedding collage background visibility raised from 48% to 63%; base image brightened to counter prior darkening. Upload all four HTML files and wedding-collage-background.jpg. Keep CNAME.

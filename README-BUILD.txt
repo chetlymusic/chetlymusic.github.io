@@ -1,0 +1,1 @@
+Chetly shared background build. Upload contents (not folder) to GitHub Pages repository root. Home, Songs, About, Contact now use the same fixed band-photo.jpg background treatment as Contact. About collage opacity raised by 10 percentage points from 38% to 48% in source CSS, including mobile. Existing content and header preserved.

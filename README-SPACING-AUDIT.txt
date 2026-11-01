@@ -1,0 +1,1 @@
+Chetly homepage spacing audit: upload index.html only. Reduced nested album credits margins and padding, tightened transitions into New Music and throughout remaining homepage sections. All other files unchanged.
