@@ -1,0 +1,1 @@
+Upload contact.html to the ROOT of your GitHub Pages repository, replacing the existing contact.html. The logo references /chetly.png already in the repository. Dashboard access is restricted in Looker Studio to authorized Google accounts; the link is not itself secret or secure.
